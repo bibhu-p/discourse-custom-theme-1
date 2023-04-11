@@ -1,0 +1,112 @@
+{{#if categories}}
+{{if showTopics 'with-topics'}}
+
+{{#each categories as |c|}}
+<div class="cat-home">
+    <div class="cat-telo">
+
+        <div class="cat-vn">
+            <details>
+                <summary>
+                    <div class="nt-cat-box">
+                        <div class="ntt-cat-des">
+                            <img src={{{dir-span c.uploaded_logo.url}}} alt="" class="logo-home ntt-cat-logo">
+                            <a title="{{{dir-span c.name}}}" href="{{{dir-span c.url}}}">
+                                <div class="cat-title ntt-cat-title">
+                                    {{{dir-span c.name}}}
+                                </div>
+                                <div class="cat-num ntt-cat-num">
+                                    {{{dir-span c.topic_count}}}
+                                </div>
+                            </a>
+                        </div>
+                        <div class="ntt-cat-icon">
+                            <span class="sub-cat-icon">&#10092;</span>
+                        </div>
+                    </div>
+                </summary>
+                {{#if c.subcategories}}
+                <div class='subcategories'>
+                    <ul style="list-style:none; list-style-type:none; column-count:2; column-gap:10px;">
+                        {{#each c.subcategories as |s|}}
+                        <li class='subcategory'>
+                            {{category-title-before category=s}}
+                            {{category-link s hideParent="true"}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                {{/if}}
+            </details>
+
+        </div>
+
+    </div>
+
+    <hr>
+</div>
+
+<style>
+    .nt-cat-box {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
+        background: #efefef;
+        height: 72px;
+        width: 320px;
+        padding: 6px 8px;
+        border-radius: 8px;
+        border-left: 8px solid #3af16b;
+    }
+
+    .ntt-cat-des {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .ntt-cat-logo {
+        height: 48px;
+        width: 48px;
+        border-radius: 8px;
+    }
+
+    .ntt-cat-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #6b6565;
+    }
+
+    .ntt-cat-num {
+        font-size: 1rem;
+        color: #837b7b
+    }
+
+    .ntt-cat-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 1rem;
+    }
+    details summary::before {
+        content: "";
+    }
+
+    details[open] summary::before {
+        content: "";
+    }
+
+    details[open] .sub-cat-icon {
+        transition: 0.3s;
+        display: none;
+    }
+
+    details[open] .sub-cat-icon {
+        transition: all 0.3s;
+        display: block;
+        transform: rotate(-90deg);
+    }
+</style>
+{{/each}}
+{{/if}}
