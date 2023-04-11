@@ -1,0 +1,24 @@
+<div class='cat-cat ntt-cat-list'>
+
+    <div class='colon cat-cat'>
+        {{categories-only-cat categories=categories}}
+    </div>
+
+    <div class='colon cat-post' style="padding: 12px">
+        <div class='colon post'>
+            <div class="topic-list blog-ava">
+                {{mount-widget widget="link-top" args=(hash listLoading=loading)}}
+            </div>
+
+            {{latest-topic-list-cat topics=topics}}
+        </div>
+    </div>
+</div>
+
+<style>
+    .ntt-cat-list {
+        display: flex;
+        flex-direction: row;
+        gap: 3rem;
+    }
+</style>
