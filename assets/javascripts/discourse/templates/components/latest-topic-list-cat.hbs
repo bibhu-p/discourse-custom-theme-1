@@ -1,0 +1,10 @@
+{{#if topics}}
+  {{latest-topic-list-contents-cat topics=topics}}
+  <div class="more-topics">
+    <a href="/latest" class="btn pull-right">{{i18n "more"}}</a>
+  </div>
+{{else}}
+  <div class='no-topics'> 
+    <h3>{{i18n "topics.none.latest"}}</h3> 
+  </div>
+{{/if}}
